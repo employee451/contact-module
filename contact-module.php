@@ -9,8 +9,6 @@ Version: 0.0.1
 GitHub Plugin URI: employee451/contact-module
 */
 
-define( 'CONTACT_MODULE__PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
-
 $contact_module_enabled = true;
 
 /**
@@ -25,17 +23,17 @@ function contact_module_scripts() {
   // Contact JS, Validate & Notifications
   if( get_theme_mod( 'contact_module_enable_section', true ) && get_theme_mod( 'contact_module_email' ) ) {
     wp_enqueue_script( 'contact-module-validate', 'http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.0/jquery.validate.min.js', array( 'jquery' ), null, true );
-    wp_enqueue_script( 'contact-module-contact', CONTACT_MODULE__PLUGIN_DIR . 'assets/js/contact-module.js', array(), null, true );
-    wp_localize_script( 'contact-module-contact', 'objectL10n', array(
+    wp_enqueue_script( 'contact-module-contact', plugins_url( 'assets/js/contact-module.js', __FILE__ ), array(), null, true );
+    wp_localize_script( 'contact-module-contact', 'contactModuleScript', array(
       'required' => __( 'This field is required', 'contact-module' ),
-      'missing_name' => __( 'Please enter your name', 'contact-module' ),
-      'missing_email' => __( 'Please enter your email', 'contact-module' ),
-      'invalid_email' => __( 'Please enter a valid email', 'contact-module' ),
-      'missing_message' => __( 'Please enter a message', 'contact-module' ),
-      'missing_recaptcha' => __( 'Please confirm you aren\'t a robot', 'contact-module' ),
-      'admin_url' => admin_url("admin-ajax.php")
+      'missingName' => __( 'Please enter your name', 'contact-module' ),
+      'missingEmail' => __( 'Please enter your email', 'contact-module' ),
+      'invalidEmail' => __( 'Please enter a valid email', 'contact-module' ),
+      'missingMessage' => __( 'Please enter a message', 'contact-module' ),
+      'missingRecaptcha' => __( 'Please confirm you aren\'t a robot', 'contact-module' ),
+      'ajaxUrl' => admin_url( 'admin-ajax.php' )
     ) );
-    wp_enqueue_style( 'contact-module-alerts', CONTACT_MODULE__PLUGIN_DIR . 'assets/css/contact-module-alerts.css' );
+    wp_enqueue_style( 'contact-module-alerts', plugins_url( 'assets/css/contact-module-alerts.css', __FILE__ ) );
   }
 }
 add_action( 'wp_enqueue_scripts', 'contact_module_scripts' );
