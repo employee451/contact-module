@@ -88,6 +88,18 @@ function contact_module_customize_register( $wp_customize ) {
   			'active_callback' 	=> 'contact_module_subtitle_is_enabled'
   		) );
 
+      // Setting: Enable Contact Formula
+  		$wp_customize->add_setting( 'contact_module_enable_formula', array(
+  			'default'              => true,
+  			'sanitize_callback'    => 'absint'
+  		) );
+  		// Control: Enable Contact Formula
+  		$wp_customize->add_control( 'contact_module_enable_formula', array(
+  			'label'       => __( 'Enable Contact Formula', 'contact-module' ),
+  			'section'     => 'contact_module',
+  			'type'        => 'checkbox'
+  		) );
+
       // Setting: Contact Formula Email
   		$wp_customize->add_setting( 'contact_module_email', array(
   			'default'              => 'hello@untitled.tld',
