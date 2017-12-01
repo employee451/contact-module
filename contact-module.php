@@ -22,7 +22,7 @@ function contact_module_scripts() {
 
   // Contact JS, Validate & Notifications
   if( get_theme_mod( 'contact_module_enable_section', true ) && get_theme_mod( 'contact_module_email' ) ) {
-    wp_enqueue_script( 'contact-module-validate', 'http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.0/jquery.validate.min.js', array( 'jquery' ), null, true );
+    wp_enqueue_script( 'contact-module-validate', 'https://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.0/jquery.validate.min.js', array( 'jquery' ), null, true );
     wp_enqueue_script( 'contact-module-contact', plugins_url( 'assets/js/contact-module.js', __FILE__ ), array(), null, true );
     wp_localize_script( 'contact-module-contact', 'contactModuleScript', array(
       'required' => __( 'This field is required', 'contact-module' ),
