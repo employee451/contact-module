@@ -5,7 +5,7 @@ Plugin URI: http://employee451.com/
 Description: This plugin adds support for the contact section of Employee 451 Pixelarity themes.
 Author: Employee 451
 Author URI: http://employee451.com/
-Version: 0.0.2
+Version: 1.0
 GitHub Plugin URI: employee451/contact-module
 */
 
