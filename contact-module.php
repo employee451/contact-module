@@ -9,8 +9,6 @@ Version: 0.0.2
 GitHub Plugin URI: employee451/contact-module
 */
 
-$contact_module_enabled = true;
-
 /**
  * Enqueue scripts and styles.
  */
